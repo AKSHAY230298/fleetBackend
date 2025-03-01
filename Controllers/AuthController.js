@@ -5,7 +5,7 @@ const jwt = require("jsonwebtoken");
 async function register(req, res) {
   try {
     console.log("register page working");
-  const { userName, email, password } = req.body;
+  const { userName, email, password,role } = req.body;
 
   const existUser = await User.findOne({ email: email });
 
@@ -22,6 +22,7 @@ async function register(req, res) {
     userName: userName,
     email: email,
     password: newBcryptPassword,
+    role:role
   });
 
   await registerData.save();
