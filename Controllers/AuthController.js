@@ -40,11 +40,11 @@ async function register(req, res) {
 async function login(req, res) {
   const { email, password } = req.body;
 
-  const existUser = await User.findOne({ email: email });
+  const existUser = await User.findOne({ email });
   
   if (!existUser) {
     return res.status(400).json({
-     existUser,
+    
       success: false,
       message: "User not registered",
     });
