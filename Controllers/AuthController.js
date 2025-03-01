@@ -28,6 +28,7 @@ async function register(req, res) {
   await registerData.save();
 
   res.status(201).json({
+    registerData,
     success: true,
     message: "User registration successfull",
   });
